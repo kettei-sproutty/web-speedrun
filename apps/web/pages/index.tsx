@@ -43,7 +43,7 @@ const HomePage: NextPage = () => {
   return (
     <div className='w-full h-full px-4 max-w-xs'>
       <label htmlFor='counter-position' className='label'>
-        <span className='label-text'>Counter Position</span>
+        <span className='label-text text-primary'>Counter Position</span>
       </label>
       <select
         name='position'

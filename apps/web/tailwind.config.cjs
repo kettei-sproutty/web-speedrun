@@ -17,11 +17,7 @@ const contentPagesDir = ['./pages/**/*.{ts,tsx}', './components/**/*.{ts,tsx}']
 const config = {
   content: contentPagesDir,
   plugins: [require('daisyui')],
-  safelist: [
-    {
-      pattern: /(bg|text)-.*/, // You can display all the colors that you need
-    },
-  ],
+  safelist: [{ pattern: /(bg|text)-.*/ }],
 }
 
 module.exports = config

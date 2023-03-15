@@ -9,14 +9,14 @@ const ColorPicker: FC<ColorPickerProps> = ({ isOpen, changeColor }: any) => {
   if (!isOpen) return null
 
   const colors = {
-    gray: ['50', '100', '200', '300', '400', '500', '600', '700', '800', '900'],
-    red: ['50', '100', '200', '300', '400', '500', '600', '700', '800', '900'],
-    yellow: ['50', '100', '200', '300', '400', '500', '600', '700', '800', '900'],
-    green: ['50', '100', '200', '300', '400', '500', '600', '700', '800', '900'],
-    blue: ['50', '100', '200', '300', '400', '500', '600', '700', '800', '900'],
-    indigo: ['50', '100', '200', '300', '400', '500', '600', '700', '800', '900'],
-    purple: ['50', '100', '200', '300', '400', '500', '600', '700', '800', '900'],
-    pink: ['50', '100', '200', '300', '400', '500', '600', '700', '800', '900'],
+    gray: ['100', '500', '900'],
+    primary: ['', 'focus', 'content'],
+    secondary: ['', 'focus', 'content'],
+    accent: ['', 'focus', 'content'],
+    red: ['500', '700', '900'],
+    yellow: ['500', '700', '900'],
+    green: ['500', '700', '900'],
+    indigo: ['500', '700', '900'],
   }
 
   return (
@@ -26,7 +26,7 @@ const ColorPicker: FC<ColorPickerProps> = ({ isOpen, changeColor }: any) => {
           {Object.keys(colors).map(key => (
             <div key={key}>
               {colors[key].map((variant: string) => {
-                const variantSelected = `${key}-${variant}`
+                const variantSelected = variant ? `${key}-${variant}` : key
 
                 return (
                   <div
