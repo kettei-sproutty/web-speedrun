@@ -1,3 +1,5 @@
+const defaultTheme = require('tailwindcss/defaultTheme')
+
 /**
  * Tailwind content when appDir will be exported
  * Roadmap: https://beta.nextjs.org/docs/app-directory-roadmap#configuration
@@ -18,6 +20,11 @@ const config = {
   content: contentPagesDir,
   plugins: [require('daisyui')],
   safelist: [{ pattern: /(bg|text)-.*/ }],
+  theme: {
+    fontFamily: {
+      serif: ['Acme', ...defaultTheme.fontFamily.serif],
+    },
+  },
 }
 
 module.exports = config

@@ -15,3 +15,7 @@ out
 
 # FS
 .DS_Store
+
+# Extension
+apps/extension/*
+!apps/extension/manifest.json

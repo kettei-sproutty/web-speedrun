@@ -1,4 +1,4 @@
-import { createContext, type FC, useReducer } from 'react'
+import { createContext, type FC, useReducer, useContext } from 'react'
 import { ChildrenProps } from '../typings/react'
 
 export enum ActionTypeEnum {
@@ -27,11 +27,11 @@ type CounterContextState = {
 }
 
 type CounterContextType = {
-  state: CounterContextState
+  counter: CounterContextState
   dispatch: (action: ActionType) => void
 }
 
-const reducer = (state: CounterContextState, action: ActionType) => {
+const reducer = (state: CounterContextState, action: ActionType): CounterContextState => {
   switch (action.type) {
     case ActionTypeEnum.CHANGE_BACKGROUND: {
       sessionStorage.setItem('counter.background', action.payload)
@@ -39,9 +39,11 @@ const reducer = (state: CounterContextState, action: ActionType) => {
     }
     case ActionTypeEnum.CHANGE_COLOR: {
       sessionStorage.setItem('counter.color', action.payload)
+      return { ...state, color: action.payload }
     }
     case ActionTypeEnum.CHANGE_POSITION: {
       sessionStorage.setItem('counter.position', action.payload)
+      return { ...state, position: action.payload }
     }
     default:
       return state
@@ -49,19 +51,21 @@ const reducer = (state: CounterContextState, action: ActionType) => {
 }
 
 const initialCounterState: CounterContextState = {
-  background: 'white',
-  color: 'black',
+  background: 'bg-secondary',
+  color: 'text-white',
   position: 'top-right',
 }
 
 const CounterContext = createContext<CounterContextType>({
-  state: initialCounterState,
+  counter: initialCounterState,
   dispatch: () => null,
 })
 
 const CounterProvider: FC<ChildrenProps> = ({ children }) => {
-  const [state, dispatch] = useReducer(reducer, initialCounterState)
-  return <CounterContext.Provider value={{ state, dispatch }}>{children}</CounterContext.Provider>
+  const [counter, dispatch] = useReducer(reducer, initialCounterState)
+  return <CounterContext.Provider value={{ counter, dispatch }}>{children}</CounterContext.Provider>
 }
+
+export const useCounter = () => useContext(CounterContext)
 
 export default CounterProvider
