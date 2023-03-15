@@ -1,0 +1,22 @@
+{
+  "$schema": "https://json.schemastore.org/chrome-manifest",
+  "name": "Web Speedrun",
+  "version": "1.0",
+  "manifest_version": 3,
+  "description": "A speedrun timer for web pages",
+  "icons": {
+    "16": "out/images/favicon-16x16.png",
+    "32": "out/images/favicon-32x32.png",
+    "192": "out/images/android-chrome-192x192.png",
+    "512": "out/images/android-chrome-512x512.png"
+  },
+  "action": {
+    "default_popup": "out/index.html",
+    "default_icon": {
+      "16": "out/images/favicon-16x16.png",
+      "32": "out/images/favicon-32x32.png"
+    },
+    "default_title": "Web Speedrun",
+    "default_area": "browser_action"
+  }
+}

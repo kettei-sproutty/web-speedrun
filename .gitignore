@@ -1,0 +1,14 @@
+# Node
+node_modules
+
+# Package Manager
+.pnpm-debug.log
+yarn-error.log
+yarn.lock
+
+# NextJS
+.next
+out
+
+# Turbo
+.turbo
