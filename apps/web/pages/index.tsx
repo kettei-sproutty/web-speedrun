@@ -2,11 +2,22 @@
 import clsx from 'clsx'
 import type { NextPage } from 'next'
 import Link from 'next/link'
+import { useEffect } from 'react'
 import Header from '../components/header'
 import { useCounter } from '../hooks/counter'
 
 const HomePage: NextPage = () => {
   const { counter } = useCounter()
+
+  useEffect(() => {
+    setTimeout(() => {
+      const message = {
+        data: 'Hello from the popup!',
+      }
+
+      chrome.runtime.sendMessage(message).then(console.log).catch(console.error)
+    }, 1000)
+  }, [])
 
   return (
     <div className='w-full flex flex-col gap-4 h-full max-w-xs '>

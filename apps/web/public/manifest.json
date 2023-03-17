@@ -19,5 +19,8 @@
     },
     "default_title": "Web Speedrun",
     "default_area": "browser_action"
+  },
+  "background": {
+    "service_worker": "background.js"
   }
 }
