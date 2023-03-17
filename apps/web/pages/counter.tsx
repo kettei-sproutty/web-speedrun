@@ -46,7 +46,7 @@ const HomePage: NextPage = () => {
       {/* select */}
       <div>
         <label htmlFor='counter-position' className='label'>
-          <span className='label-text text-white uppercase'>Counter Position</span>
+          <span className='label-text  uppercase'>Counter Position</span>
         </label>
         <select
           name='position'
