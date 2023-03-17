@@ -2,19 +2,19 @@
 import clsx from 'clsx'
 import type { NextPage } from 'next'
 import Link from 'next/link'
+import Header from '../components/header'
 import { useCounter } from '../hooks/counter'
 
 const HomePage: NextPage = () => {
   const { counter } = useCounter()
 
   return (
-    <div className='w-full h-full max-w-xs'>
-      <div className='overflow-hidden relative items-center h-24 w-full'>
-        <img src='/images/logo.png' alt='logo' draggable={false} className='image-full -mt-8 select-none' />
-      </div>
-      <div className='flex flex-col w-full space-y-2 justify-center items-start'>
-        <div className='card w-full'>
-          <div className={clsx('stat', counter.background)}>
+    <div className='w-full flex flex-col gap-4 h-full max-w-xs '>
+      <Header actionLabel='Edit' actionPath='/counter' />
+
+      <div className='flex flex-col w-full space-y-2 justify-center items-start '>
+        <div className='card w-full '>
+          <div className={clsx('stat rounded-md', counter.background)}>
             <div className={clsx('stat-figure', counter.color)}>
               <svg
                 xmlns='http://www.w3.org/2000/svg'
@@ -32,13 +32,6 @@ const HomePage: NextPage = () => {
             </div>
             <div className='stat-value'>
               <span className={counter.color}>0.12</span>
-            </div>
-          </div>
-          <div className='card-body items-center text-center'>
-            <div className='card-actions'>
-              <Link href='/counter' className='w-full'>
-                <button className='btn w-full text-white btn-primary'>Edit Counter</button>
-              </Link>
             </div>
           </div>
         </div>
